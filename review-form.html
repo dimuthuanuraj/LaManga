@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit a Review | LÁ MANGÁ</title>
+    <meta name="description" content="Share your experience at LÁ MANGÁ, Mirissa. We value your feedback!">
+    <link rel="stylesheet" href="public/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Review Form Page Specific Styles */
+        .form-page {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--bg-cream) 0%, var(--bg-light) 100%);
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .form-header .logo {
+            margin-bottom: 20px;
+        }
+
+        .form-header .logo img {
+            height: 70px;
+        }
+
+        .form-header h1 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .form-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .review-form-container {
+            background: var(--bg-white);
+            border-radius: 24px;
+            padding: 50px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .form-group label span {
+            color: #e74c3c;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px 18px;
+            border: 2px solid #e8e8e8;
+            border-radius: 12px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: var(--transition);
+            background: var(--bg-light);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            background: var(--bg-white);
+            box-shadow: 0 0 0 4px rgba(26, 77, 46, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* Star Rating Input */
+        .rating-input {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+            gap: 5px;
+        }
+
+        .rating-input input {
+            display: none;
+        }
+
+        .rating-input label {
+            font-size: 2rem;
+            color: #ddd;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-bottom: 0;
+        }
+
+        .rating-input label:hover,
+        .rating-input label:hover ~ label,
+        .rating-input input:checked ~ label {
+            color: #f1c40f;
+        }
+
+        .rating-input label i {
+            pointer-events: none;
+        }
+
+        /* Submit Button */
+        .btn-submit {
+            display: block;
+            width: 100%;
+            padding: 18px 30px;
+            background: var(--primary-color);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(26, 77, 46, 0.3);
+        }
+
+        .btn-submit i {
+            margin-right: 10px;
+        }
+
+        .form-note {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .form-note i {
+            color: var(--secondary-color);
+            margin-right: 5px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 30px;
+            color: var(--primary-color);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .back-link:hover {
+            color: var(--primary-dark);
+            transform: translateX(-5px);
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .success-message i {
+            font-size: 4rem;
+            color: #27ae60;
+            margin-bottom: 20px;
+        }
+
+        .success-message h2 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+
+        .success-message p {
+            color: var(--text-light);
+            margin-bottom: 25px;
+        }
+
+        .form-content.hidden {
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+            .review-form-container {
+                padding: 30px 20px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .form-header h1 {
+                font-size: 2rem;
+            }
+
+            .rating-input label {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-page">
+        <div class="form-header">
+            <a href="index.html" class="logo">
+                <img src="public/images/logo.png" alt="LÁ MANGÁ">
+            </a>
+            <h1>Share Your Experience</h1>
+            <p>We'd love to hear about your stay at LÁ MANGÁ</p>
+        </div>
+
+        <div class="review-form-container">
+            <!-- Success Message -->
+            <div class="success-message" id="success-message">
+                <i class="fas fa-check-circle"></i>
+                <h2>Thank You!</h2>
+                <p>Your review has been submitted successfully. We appreciate your feedback and will publish it soon.</p>
+                <a href="index.html" class="btn-submit" style="display: inline-block; width: auto;">
+                    <i class="fas fa-home"></i> Back to Home
+                </a>
+            </div>
+
+            <!-- Review Form -->
+            <form id="review-form" class="form-content">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Your Name <span>*</span></label>
+                        <input type="text" id="name" name="name" placeholder="e.g., John D." required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address <span>*</span></label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="room">Room Stayed <span>*</span></label>
+                        <select id="room" name="room" required>
+                            <option value="">Select a room...</option>
+                            <option value="Sunset">Sunset Room</option>
+                            <option value="Olive">Olive Room</option>
+                            <option value="Garden">Garden Room</option>
+                            <option value="Sea">Sea Room</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="stay-date">Month of Stay <span>*</span></label>
+                        <input type="month" id="stay-date" name="stay-date" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Your Rating <span>*</span></label>
+                    <div class="rating-input">
+                        <input type="radio" id="star5" name="rating" value="5" required>
+                        <label for="star5"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star4" name="rating" value="4">
+                        <label for="star4"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star3" name="rating" value="3">
+                        <label for="star3"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star2" name="rating" value="2">
+                        <label for="star2"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star1" name="rating" value="1">
+                        <label for="star1"><i class="fas fa-star"></i></label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="review">Your Review <span>*</span></label>
+                    <textarea id="review" name="review" placeholder="Tell us about your experience... What did you enjoy most? Any highlights from your stay?" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="country">Country (Optional)</label>
+                    <input type="text" id="country" name="country" placeholder="e.g., Germany">
+                </div>
+
+                <button type="submit" class="btn-submit">
+                    <i class="fas fa-paper-plane"></i> Submit Review
+                </button>
+
+                <p class="form-note">
+                    <i class="fas fa-shield-alt"></i> Your email will not be published. Reviews are moderated before appearing on the website.
+                </p>
+            </form>
+        </div>
+
+        <a href="index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+    </div>
+
+    <script>
+        // Handle form submission
+        document.getElementById('review-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+            
+            // For now, log to console (you can integrate with a backend later)
+            console.log('Review Submitted:', data);
+            
+            // Show success message
+            document.getElementById('review-form').classList.add('hidden');
+            document.getElementById('success-message').classList.add('show');
+            
+            // Optional: Send to email or store (you can add your backend endpoint here)
+            // Example: fetch('/api/reviews', { method: 'POST', body: JSON.stringify(data) });
+            
+            // Store in localStorage for demo purposes
+            let reviews = JSON.parse(localStorage.getItem('lamanga-reviews') || '[]');
+            reviews.push({
+                ...data,
+                submittedAt: new Date().toISOString()
+            });
+            localStorage.setItem('lamanga-reviews', JSON.stringify(reviews));
+        });
+
+        // Set max date to current month
+        const stayDateInput = document.getElementById('stay-date');
+        const today = new Date();
+        stayDateInput.max = today.toISOString().slice(0, 7);
+    </script>
+</body>
+</html>
