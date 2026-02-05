@@ -1,0 +1,11 @@
+# robots.txt for LÁ MANGÁ Mirissa
+# https://lamangamirissa.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://lamangamirissa.com/sitemap.xml
+
+# Crawl-delay (optional, be nice to servers)
+Crawl-delay: 1
