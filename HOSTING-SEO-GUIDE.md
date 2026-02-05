@@ -49,8 +49,8 @@ git commit -m "Initial commit - LÁ MANGÁ hotel website"
 ### Push Your Code
 
 ```bash
-# Add remote origin (replace YOUR_USERNAME with your GitHub username)
-git remote add origin https://github.com/YOUR_USERNAME/lamanga-website.git
+# Add remote origin (replace dimuthuanuraj with your GitHub username)
+git remote add origin https://github.com/dimuthuanuraj/lamanga-website.git
 
 # Push to GitHub
 git branch -M main
@@ -71,7 +71,7 @@ git push -u origin main
 5. Click **Save**
 6. Wait 2-3 minutes
 
-Your site will be live at: `https://YOUR_USERNAME.github.io/lamanga-website/`
+Your site will be live at: `https://dimuthuanuraj.github.io/lamanga-website/`
 
 ---
 
@@ -99,9 +99,9 @@ Your site will be live at: `https://YOUR_USERNAME.github.io/lamanga-website/`
 
 | Type | Host | Value | TTL |
 |------|------|-------|-----|
-| CNAME | www | YOUR_USERNAME.github.io. | Automatic |
+| CNAME | www | dimuthuanuraj.github.io. | Automatic |
 
-> ⚠️ **Important**: Replace `YOUR_USERNAME` with your actual GitHub username. Include the trailing dot (`.`) after `github.io`
+> ⚠️ **Important**: Replace `dimuthuanuraj` with your actual GitHub username. Include the trailing dot (`.`) after `github.io`
 
 ### 3.2 Configure GitHub Pages Custom Domain
 
@@ -310,7 +310,7 @@ LaManga/
 |----------|-----|
 | Your Website | https://lamangamirissa.com |
 | Review Form | https://lamangamirissa.com/review-form.html |
-| GitHub Repository | https://github.com/YOUR_USERNAME/lamanga-website |
+| GitHub Repository | https://github.com/dimuthuanuraj/lamanga-website |
 | Google Search Console | https://search.google.com/search-console |
 | Google Business Profile | https://business.google.com |
 | Namecheap DNS | https://ap.www.namecheap.com/domains/domaincontrolpanel/lamangamirissa.com/advancedns |
