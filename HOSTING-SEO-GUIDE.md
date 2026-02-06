@@ -333,6 +333,18 @@ LaManga/
 - [ ] Set up Facebook business page
 - [ ] Ask first guests for Google reviews
 
+### Review Form Setup
+- [ ] Set up Formspree account at [formspree.io](https://formspree.io/)
+- [ ] Create new form and copy Form ID
+- [ ] Replace `YOUR_FORM_ID` in `review-form.html` with actual Form ID
+- [ ] Get Google Place ID from [Place ID Finder](https://developers.google.com/maps/documentation/javascript/examples/places-placeid-finder)
+- [ ] Replace `YOUR_PLACE_ID` in `review-form.html` with actual Place ID
+- [ ] Test review form submission
+
+### Email Setup
+- [ ] Set up email forwarding in Namecheap (Domain → Redirect Email)
+- [ ] Forward `info@lamangamirissa.com` to personal email
+
 ---
 
 **Good luck with LÁ MANGÁ! 🏨🌴**
