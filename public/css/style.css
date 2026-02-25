@@ -1711,6 +1711,37 @@ button.btn-room {
     font-size: 0.95rem;
 }
 
+.review-cta {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.btn-review {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: var(--transition);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-review:hover {
+    background: var(--primary-dark);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+    color: #fff;
+}
+
+.btn-review i {
+    font-size: 1.2rem;
+}
+
 /* Reviews Responsive */
 @media (max-width: 992px) {
     .reviews-grid {
