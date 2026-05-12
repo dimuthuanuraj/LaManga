@@ -30,6 +30,8 @@
     <meta property="og:title" content="LÁ MANGÁ | Best Boutique Hotel in Mirissa, Sri Lanka">
     <meta property="og:description" content="Experience luxury accommodation at LÁ MANGÁ. Just 5 minutes from Mirissa Beach, Coconut Tree Hill & whale watching tours. German & English speaking staff.">
     <meta property="og:image" content="https://lamangamirissa.com/public/images/gallery/01.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="LÁ MANGÁ Mirissa">
     
@@ -55,6 +57,11 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="public/images/logo.png">
     <link rel="apple-touch-icon" href="public/images/logo.png">
+    
+    <!-- Preconnect for faster resource loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="public/css/style.css">
@@ -92,6 +99,13 @@
         "starRating": {
             "@type": "Rating",
             "ratingValue": "4.9"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "27",
+            "bestRating": "5",
+            "worstRating": "1"
         },
         "priceRange": "$$",
         "amenityFeature": [
@@ -155,9 +169,9 @@
     <header>
         <nav>
             <div class="logo">
-                <a href="/"><img src="public/images/logo.png" alt="LÁ MANGÁ"></a>
+                <a href="/"><img src="public/images/logo.png" alt="LÁ MANGÁ Hotel Mirissa Sri Lanka"></a>
             </div>
-            <div class="menu-toggle" id="mobile-menu">
+            <div class="menu-toggle" id="mobile-menu" aria-label="Toggle navigation menu" aria-expanded="false">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -181,12 +195,17 @@
                 <h1>LÁ MANGÁ</h1>
                 <span class="hero-location"><i class="fas fa-map-marker-alt"></i> Mirissa, Sri Lanka</span>
                 <p class="hero-tagline">Your Serene Getaway in the Heart of the South</p>
+                <div class="trust-badges-top">
+                    <span class="trust-badge"><i class="fab fa-google"></i> 4.9 ★</span>
+                    <span class="trust-badge"><i class="fas fa-comments"></i> 27 Reviews</span>
+                    <span class="trust-badge"><i class="fas fa-shield-alt"></i> Book Direct & Save</span>
+                </div>
                 <div class="hero-features">
                     <span><i class="fas fa-bed"></i> 4 Luxury Rooms</span>
                     <span><i class="fas fa-umbrella-beach"></i> 5 min to Beach</span>
                     <span><i class="fas fa-wifi"></i> Free WiFi</span>
                 </div>
-                <a href="https://wa.me/94762096130" class="btn-primary"><i class="fab fa-whatsapp"></i> Book Your Stay</a>
+                <a href="https://wa.me/94762096130?text=Hi!%20I%27d%20like%20to%20enquire%20about%20booking%20a%20room%20at%20L%C3%81%20MANG%C3%81.%20Could%20you%20share%20availability%20and%20rates%3F" class="btn-primary btn-pulse" target="_blank"><i class="fab fa-whatsapp"></i> Book Your Stay</a>
             </div>
             <div class="scroll-indicator">
                 <span>Scroll</span>
@@ -220,7 +239,7 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="public/images/gallery/16.jpg" alt="LÁ MANGÁ Property" loading="lazy">
+                    <img src="public/images/gallery/16.jpg" alt="LÁ MANGÁ boutique hotel exterior with lush tropical garden and relaxation area in Mirissa, Sri Lanka" loading="lazy">
                 </div>
             </div>
         </section>
@@ -271,12 +290,13 @@
                 <!-- Sunset Room -->
                 <div class="room-card">
                     <div class="room-image-container">
-                        <img src="public/images/sunset/1.jpg" alt="Sunset Room" loading="lazy">
+                        <img src="public/images/sunset/1.jpg" alt="Sunset Room with double bed and garden view at LÁ MANGÁ hotel Mirissa" loading="lazy">
                         <div class="room-badge">Popular</div>
                     </div>
                     <div class="room-content">
                         <h3>Sunset</h3>
                         <span class="room-type">Triple Room with Garden View</span>
+
                         <div class="room-capacity">
                             <span><i class="fas fa-user-friends"></i> 3 Guests</span>
                             <span><i class="fas fa-bed"></i> 1 Single + 1 Double</span>
@@ -287,18 +307,19 @@
                             <span><i class="fas fa-bath"></i> Private Bath</span>
                             <span><i class="fas fa-coffee"></i> Tea/Coffee</span>
                         </div>
-                        <button class="btn-room" data-room="Sunset" data-whatsapp="#whatsapp-placeholder-sunset">Book This Room</button>
+                        <button class="btn-room" data-room="Sunset" data-whatsapp="https://wa.me/94762096130?text=Hi!%20I%27d%20like%20to%20book%20the%20*Sunset%20Room*%20(Triple%20Room%20with%20Garden%20View).%20Could%20you%20confirm%20availability%20and%20pricing%3F">Book This Room</button>
                     </div>
                 </div>
                 <!-- Olive Room -->
                 <div class="room-card">
                     <div class="room-image-container">
-                        <img src="public/images/gallery/05.jpg" alt="Olive Room" loading="lazy">
+                        <img src="public/images/gallery/05.jpg" alt="Olive Room with private entrance and double bed at LÁ MANGÁ boutique hotel Mirissa" loading="lazy">
                         <div class="room-badge private">Private Entrance</div>
                     </div>
                     <div class="room-content">
                         <h3>Olive</h3>
                         <span class="room-type">Deluxe Double Room</span>
+
                         <div class="room-capacity">
                             <span><i class="fas fa-user-friends"></i> 2 Guests</span>
                             <span><i class="fas fa-bed"></i> 1 Double Bed</span>
@@ -309,17 +330,18 @@
                             <span><i class="fas fa-bath"></i> Private Bath</span>
                             <span><i class="fas fa-wifi"></i> WiFi</span>
                         </div>
-                        <button class="btn-room" data-room="Olive" data-whatsapp="#whatsapp-placeholder-olive">Book This Room</button>
+                        <button class="btn-room" data-room="Olive" data-whatsapp="https://wa.me/94762096130?text=Hi!%20I%27d%20like%20to%20book%20the%20*Olive%20Room*%20(Deluxe%20Double%20with%20Private%20Entrance).%20Could%20you%20confirm%20availability%20and%20pricing%3F">Book This Room</button>
                     </div>
                 </div>
                 <!-- Garden Room -->
                 <div class="room-card">
                     <div class="room-image-container">
-                        <img src="public/images/gallery/08.jpg" alt="Garden Room" loading="lazy">
+                        <img src="public/images/gallery/08.jpg" alt="Garden Room with lush green view and modern amenities at LÁ MANGÁ Mirissa" loading="lazy">
                     </div>
                     <div class="room-content">
                         <h3>Garden</h3>
                         <span class="room-type">Deluxe Double Room</span>
+
                         <div class="room-capacity">
                             <span><i class="fas fa-user-friends"></i> 2 Guests</span>
                             <span><i class="fas fa-bed"></i> 1 Double Bed</span>
@@ -330,13 +352,13 @@
                             <span><i class="fas fa-bath"></i> Private Bath</span>
                             <span><i class="fas fa-wifi"></i> WiFi</span>
                         </div>
-                        <button class="btn-room" data-room="Garden" data-whatsapp="#whatsapp-placeholder-garden">Book This Room</button>
+                        <button class="btn-room" data-room="Garden" data-whatsapp="https://wa.me/94762096130?text=Hi!%20I%27d%20like%20to%20book%20the%20*Garden%20Room*%20(Deluxe%20Double%20with%20Garden%20View).%20Could%20you%20confirm%20availability%20and%20pricing%3F">Book This Room</button>
                     </div>
                 </div>
                 <!-- Sea Room -->
                 <div class="room-card">
                     <div class="room-image-container">
-                        <img src="public/images/gallery/10.jpg" alt="Sea Room" loading="lazy">
+                        <img src="public/images/gallery/10.jpg" alt="Sea Room with comfortable double bed and natural surroundings at LÁ MANGÁ Mirissa" loading="lazy">
                     </div>
                     <div class="room-content">
                         <h3>Sea</h3>
@@ -351,7 +373,7 @@
                             <span><i class="fas fa-bath"></i> Private Bath</span>
                             <span><i class="fas fa-wifi"></i> WiFi</span>
                         </div>
-                        <button class="btn-room" data-room="Sea" data-whatsapp="#whatsapp-placeholder-sea">Book This Room</button>
+                        <button class="btn-room" data-room="Sea" data-whatsapp="https://wa.me/94762096130?text=Hi!%20I%27d%20like%20to%20book%20the%20*Sea%20Room*%20(Deluxe%20Double%20Room).%20Could%20you%20confirm%20availability%20and%20pricing%3F">Book This Room</button>
                     </div>
                 </div>
             </div>
@@ -435,103 +457,43 @@
                 <span class="section-subtitle">Testimonials</span>
                 <h2>Guest Reviews</h2>
                 <div class="section-divider"></div>
-                <p class="section-description">What our guests say about their experience at LÁ MANGÁ</p>
+                <p class="section-description">Real reviews from our guests on Google</p>
             </div>
             <div class="reviews-container">
-                <div class="reviews-grid">
-                    <!-- Review 1 -->
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">
-                                <span>JM</span>
-                            </div>
-                            <div class="reviewer-info">
-                                <h4>Julia M.</h4>
-                                <span class="review-date">January 2026</span>
-                            </div>
-                            <div class="review-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                        <p class="review-text">"Absolutely wonderful stay! The Sunset Room had a beautiful garden view, and the staff made us feel right at home. The location is perfect – just a short walk to Mirissa Beach and Coconut Tree Hill."</p>
-                        <span class="review-room"><i class="fas fa-bed"></i> Stayed in Sunset Room</span>
+                <!-- Google Rating Summary -->
+                <div class="google-rating-header" id="google-rating-header">
+                    <div class="google-brand">
+                        <svg viewBox="0 0 24 24" width="28" height="28">
+                            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
+                            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                        </svg>
+                        <span>Google Reviews</span>
                     </div>
-                    <!-- Review 2 -->
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">
-                                <span>TK</span>
-                            </div>
-                            <div class="reviewer-info">
-                                <h4>Thomas K.</h4>
-                                <span class="review-date">December 2025</span>
-                            </div>
-                            <div class="review-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
+                    <div class="google-score">
+                        <span class="google-score-number" id="google-avg-rating">5.0</span>
+                        <div class="google-score-stars" id="google-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
                         </div>
-                        <p class="review-text">"A hidden gem in Mirissa! The private entrance to our room was a lovely touch. Clean, comfortable, and the hosts speak excellent German which made communication so easy. Highly recommend!"</p>
-                        <span class="review-room"><i class="fas fa-bed"></i> Stayed in Olive Room</span>
-                    </div>
-                    <!-- Review 3 -->
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="reviewer-avatar">
-                                <span>SC</span>
-                            </div>
-                            <div class="reviewer-info">
-                                <h4>Sarah C.</h4>
-                                <span class="review-date">November 2025</span>
-                            </div>
-                            <div class="review-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                        </div>
-                        <p class="review-text">"Perfect base for exploring the south coast. We did whale watching, visited Galle Fort, and relaxed on the beach. The garden area is so peaceful. Great value for money!"</p>
-                        <span class="review-room"><i class="fas fa-bed"></i> Stayed in Garden Room</span>
+                        <span class="google-score-count" id="google-review-count">Based on Google Reviews</span>
                     </div>
                 </div>
-                <div class="reviews-summary">
-                    <div class="summary-score">
-                        <span class="score">4.9</span>
-                        <div class="score-stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <span class="score-label">Excellent</span>
-                    </div>
-                    <div class="summary-badges">
-                        <div class="badge">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Great Location</span>
-                        </div>
-                        <div class="badge">
-                            <i class="fas fa-broom"></i>
-                            <span>Spotless Clean</span>
-                        </div>
-                        <div class="badge">
-                            <i class="fas fa-heart"></i>
-                            <span>Wonderful Host</span>
-                        </div>
+
+                <!-- Reviews Grid - dynamically populated -->
+                <div class="reviews-grid" id="google-reviews-grid">
+                    <div class="reviews-loading" id="reviews-loading">
+                        <div class="loading-spinner"></div>
+                        <p>Loading Google Reviews...</p>
                     </div>
                 </div>
+
                 <div class="review-cta">
-                    <a href="https://www.google.com/maps/place/L%C3%81+MANG%C3%81/@5.9483423,80.4591779,17z/data=!4m24!1m12!3m11!1s0x3ae13fcb10792849:0x6f1d2b8c3dab671b!2zTMOBIE1BTkfDgQ!5m2!4m1!1i2!8m2!3d5.9483423!4d80.4617528!9m1!1b1!16s%2Fg%2F11yyg1hnrn!3m10!1s0x3ae13fcb10792849:0x6f1d2b8c3dab671b!5m2!4m1!1i2!8m2!3d5.9483423!4d80.4617528!9m1!1b1!16s%2Fg%2F11yyg1hnrn?entry=ttu&g_ep=EgoyMDI2MDIyMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="btn-review">
+                    <a href="https://search.google.com/local/writereview?placeid=ChIJSSh5EMs_4ToRG2erPYwrHW8" target="_blank" rel="noopener noreferrer" class="btn-review">
                         <i class="fab fa-google"></i> Write a Review on Google
                     </a>
                 </div>
@@ -714,7 +676,49 @@
                 </a>
             </div>
         </section>
+        <!-- Why Book Direct Section -->
+        <section id="direct-booking">
+            <div class="direct-booking-container">
+                <div class="direct-booking-content">
+                    <h2><i class="fas fa-hand-holding-heart"></i> Why Book Direct?</h2>
+                    <p>Skip the middleman and enjoy exclusive perks when you book directly with us via WhatsApp.</p>
+                    <div class="perks-grid">
+                        <div class="perk-item">
+                            <i class="fas fa-dollar-sign"></i>
+                            <h4>Best Rate Guaranteed</h4>
+                            <span>Lower prices than any OTA</span>
+                        </div>
+                        <div class="perk-item">
+                            <i class="fas fa-calendar-check"></i>
+                            <h4>Flexible Cancellation</h4>
+                            <span>Free changes up to 48hrs before</span>
+                        </div>
+                        <div class="perk-item">
+                            <i class="fas fa-concierge-bell"></i>
+                            <h4>Personal Concierge</h4>
+                            <span>WhatsApp support before & during stay</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <!-- Sticky Booking Bar -->
+    <div class="sticky-booking-bar" id="sticky-booking-bar">
+        <div class="sticky-bar-content">
+            <div class="sticky-bar-info">
+                <span class="sticky-bar-name">LÁ MANGÁ</span>
+                <span class="sticky-bar-rating"><i class="fas fa-star"></i> 4.9 · Mirissa</span>
+            </div>
+            <div class="sticky-bar-price">
+                <span><i class="fas fa-check-circle" style="color:#27ae60"></i> Best Rate Guaranteed</span>
+            </div>
+            <a href="https://wa.me/94762096130?text=Hi!%20I%27d%20like%20to%20enquire%20about%20booking%20a%20room%20at%20L%C3%81%20MANG%C3%81.%20Could%20you%20share%20availability%20and%20rates%3F" class="sticky-bar-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> Book Now
+            </a>
+        </div>
+    </div>
 
     <footer>
         <div class="footer-content">
@@ -774,5 +778,6 @@
     </div>
 
     <script src="public/js/script.js"></script>
+    <script src="public/js/google-reviews.js"></script>
 </body>
 </html>

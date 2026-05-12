@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', function() {
         mobileMenu.addEventListener('click', function() {
             navLinks.classList.toggle('active');
             mobileMenu.classList.toggle('active');
+            // Accessibility: toggle aria-expanded
+            const isExpanded = navLinks.classList.contains('active');
+            mobileMenu.setAttribute('aria-expanded', isExpanded);
         });
     }
 
@@ -15,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', () => {
             navLinks.classList.remove('active');
             mobileMenu.classList.remove('active');
+            mobileMenu.setAttribute('aria-expanded', 'false');
         });
     });
 
@@ -34,15 +38,38 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Header scroll effect
+    // Header scroll effect + Sticky Booking Bar
     const header = document.querySelector('header');
+    const stickyBar = document.getElementById('sticky-booking-bar');
+    const heroSection = document.getElementById('hero');
+    let heroHeight = heroSection ? heroSection.offsetHeight : 700;
+
     window.addEventListener('scroll', function() {
+        // Header effect
         if (window.scrollY > 100) {
             header.style.background = 'rgba(255, 255, 255, 0.98)';
             header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
         } else {
             header.style.background = 'rgba(255, 255, 255, 0.95)';
             header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+        }
+
+        // Sticky Booking Bar: show after scrolling past hero
+        if (stickyBar) {
+            if (window.scrollY > heroHeight) {
+                stickyBar.classList.add('visible');
+                document.body.classList.add('sticky-visible');
+            } else {
+                stickyBar.classList.remove('visible');
+                document.body.classList.remove('sticky-visible');
+            }
+        }
+    });
+
+    // Recalculate hero height on resize
+    window.addEventListener('resize', function() {
+        if (heroSection) {
+            heroHeight = heroSection.offsetHeight;
         }
     });
 
@@ -81,7 +108,15 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Update modal content
             modalRoomName.textContent = roomName + ' Room';
-            whatsappCartLink.href = whatsappLink;
+            
+            // Set the WhatsApp link from the data attribute
+            if (whatsappLink && whatsappLink.startsWith('https://wa.me/')) {
+                whatsappCartLink.href = whatsappLink;
+            } else {
+                // Fallback: generate a proper WhatsApp link
+                const message = encodeURIComponent(`Hi! I'd like to book the *${roomName} Room*. Could you confirm availability and pricing?`);
+                whatsappCartLink.href = `https://wa.me/94762096130?text=${message}`;
+            }
             
             // Show modal
             bookingModal.classList.add('active');
@@ -117,3 +152,4 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+

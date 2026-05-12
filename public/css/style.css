@@ -128,7 +128,9 @@ nav {
 }
 
 .logo img {
-    height: 60px;
+    height: 55px;
+    width: auto;
+    object-fit: contain;
     transition: var(--transition);
 }
 
@@ -2157,5 +2159,344 @@ button.btn-room {
 
     .direct-booking-container {
         padding: 40px 20px;
+    }
+}
+
+/* ===== Room Pricing ===== */
+.room-price {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+}
+
+.price-from {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+.price-amount {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    line-height: 1;
+}
+
+.price-per {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+.price-direct {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #27ae60;
+    background: rgba(39, 174, 96, 0.1);
+    padding: 4px 10px;
+    border-radius: 12px;
+    margin-left: 8px;
+}
+
+.price-direct i {
+    font-size: 0.7rem;
+}
+
+/* ===== Sticky Booking Bar ===== */
+.sticky-booking-bar {
+    position: fixed;
+    bottom: -100px;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.12);
+    z-index: 998;
+    transition: bottom 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.sticky-booking-bar.visible {
+    bottom: 0;
+}
+
+.sticky-bar-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 14px 40px;
+    gap: 20px;
+}
+
+.sticky-bar-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.sticky-bar-name {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.sticky-bar-rating {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.sticky-bar-rating i {
+    color: #f1c40f;
+    font-size: 0.8rem;
+}
+
+.sticky-bar-price {
+    font-size: 1rem;
+    color: var(--text-light);
+}
+
+.sticky-bar-price strong {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.sticky-bar-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #25d366;
+    color: #fff;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.sticky-bar-btn:hover {
+    background: #1da851;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+    color: #fff;
+}
+
+.sticky-bar-btn i {
+    font-size: 1.2rem;
+}
+
+/* Adjust WhatsApp float when sticky bar is visible */
+.sticky-booking-bar.visible ~ .whatsapp-float,
+body.sticky-visible .whatsapp-float {
+    bottom: 90px;
+}
+
+@media (max-width: 768px) {
+    .sticky-bar-content {
+        padding: 12px 16px;
+        gap: 12px;
+    }
+
+    .sticky-bar-info {
+        display: none;
+    }
+
+    .sticky-bar-price {
+        font-size: 0.9rem;
+    }
+
+    .sticky-bar-price strong {
+        font-size: 1.3rem;
+    }
+
+    .sticky-bar-btn {
+        padding: 12px 24px;
+        font-size: 0.9rem;
+        flex: 1;
+        justify-content: center;
+    }
+
+    body.sticky-visible .whatsapp-float {
+        bottom: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sticky-bar-content {
+        padding: 10px 12px;
+    }
+
+    .sticky-bar-price strong {
+        font-size: 1.2rem;
+    }
+
+    .sticky-bar-btn {
+        padding: 11px 20px;
+    }
+
+    /* Hide trust badges on very small screens */
+    .trust-badges-top {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .trust-badge {
+        padding: 4px 10px;
+        font-size: 0.75rem;
+    }
+}
+
+/* ===== Google Reviews Header ===== */
+.google-rating-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 16px;
+    padding: 20px 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.google-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.google-score {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.google-score-number {
+    font-family: var(--font-heading);
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1;
+}
+
+.google-score-stars {
+    display: flex;
+    gap: 2px;
+}
+
+.google-score-stars i {
+    color: #fbbc05;
+    font-size: 1.1rem;
+}
+
+.google-score-count {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* ===== Loading Spinner ===== */
+.reviews-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    grid-column: 1 / -1;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(26, 77, 46, 0.15);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin-bottom: 16px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.reviews-loading p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* ===== Review Card Animation ===== */
+.review-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.review-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== Review Source Badge ===== */
+.review-source {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+/* ===== Reviewer Avatar with Photo ===== */
+.reviewer-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* ===== Google Reviews Responsive ===== */
+@media (max-width: 768px) {
+    .google-rating-header {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+        padding: 16px 20px;
+    }
+
+    .google-score {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .google-score-number {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .google-brand span {
+        font-size: 0.95rem;
+    }
+
+    .google-score-stars i {
+        font-size: 0.9rem;
     }
 }
