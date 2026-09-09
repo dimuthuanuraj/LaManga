@@ -5,12 +5,14 @@ on:
     # Runs every day at 6:00 AM UTC (11:30 AM Sri Lanka time)
     - cron: '0 6 * * *'
   workflow_dispatch:
-    # Allows manual trigger from GitHub Actions tab
+    # Allows manual trigger from the GitHub Actions tab
 
 jobs:
   fetch-reviews:
     runs-on: ubuntu-latest
-    
+    permissions:
+      contents: write
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -22,6 +24,9 @@ jobs:
 
       - name: Fetch Google Reviews
         env:
+          # FEATURABLE_ID is preferred: it returns the full review history.
+          # The Places API is capped at 5 reviews and is only the fallback.
+          FEATURABLE_ID: ${{ secrets.FEATURABLE_ID }}
           GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
           PLACE_ID: 'ChIJSSh5EMs_4ToRG2erPYwrHW8'
         run: node scripts/fetch-reviews.js

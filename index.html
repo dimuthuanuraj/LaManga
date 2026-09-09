@@ -24,6 +24,12 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://lamangamirissa.com/">
     
+
+    <!-- Language alternates -->
+    <link rel="alternate" hreflang="en" href="https://lamangamirissa.com/">
+    <link rel="alternate" hreflang="de" href="https://lamangamirissa.com/de/">
+    <link rel="alternate" hreflang="x-default" href="https://lamangamirissa.com/">
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://lamangamirissa.com/">
@@ -45,8 +51,8 @@
     <!-- Geo Tags for Local SEO -->
     <meta name="geo.region" content="LK-SG">
     <meta name="geo.placename" content="Mirissa, Sri Lanka">
-    <meta name="geo.position" content="5.9478;80.4537">
-    <meta name="ICBM" content="5.9478, 80.4537">
+    <meta name="geo.position" content="5.948424;80.461815">
+    <meta name="ICBM" content="5.948424, 80.461815">
     
     <!-- Additional SEO -->
     <meta name="theme-color" content="#1a4d2e">
@@ -58,6 +64,10 @@
     <link rel="icon" type="image/png" href="public/images/logo.png">
     <link rel="apple-touch-icon" href="public/images/logo.png">
     
+    <!-- Preload the hero image: it is the LCP element and lives in CSS,
+         where the browser's preload scanner cannot find it. -->
+    <link rel="preload" as="image" href="public/images/gallery/01.webp" type="image/webp" fetchpriority="high">
+
     <!-- Preconnect for faster resource loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -88,8 +98,8 @@
         },
         "geo": {
             "@type": "GeoCoordinates",
-            "latitude": "5.9478",
-            "longitude": "80.4537"
+            "latitude": "5.948424",
+            "longitude": "80.461815"
         },
         "image": [
             "https://lamangamirissa.com/public/images/gallery/01.jpg",
@@ -103,7 +113,7 @@
         "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "4.9",
-            "reviewCount": "27",
+            "reviewCount": "45",
             "bestRating": "5",
             "worstRating": "1"
         },
@@ -148,8 +158,8 @@
         },
         "geo": {
             "@type": "GeoCoordinates",
-            "latitude": 5.9478,
-            "longitude": 80.4537
+            "latitude": 5.948424,
+            "longitude": 80.461815
         },
         "openingHoursSpecification": {
             "@type": "OpeningHoursSpecification",
@@ -158,6 +168,80 @@
             "closes": "23:59"
         }
     }
+    </script>
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "How far is LÁ MANGÁ from Mirissa Beach?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "LÁ MANGÁ is about 500 m from Mirissa Beach — roughly a 7-minute walk. Coconut Tree Hill is around 5 minutes away, and the whale-watching harbour is a short tuk-tuk ride."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What are the check-in and check-out times?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Check-in is from 2:00 PM and check-out is until 11:00 AM. Early check-in or late check-out can often be arranged — just message us on WhatsApp before you arrive."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Do you arrange whale watching, surfing or airport transfers?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. We arrange whale-watching boat tours, surf lessons, safari day trips and private airport transfers from Colombo (CMB) or Mattala (HRI). Message us on WhatsApp and we will book it for you at local rates."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is breakfast available?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, freshly prepared Sri Lankan and Western breakfast can be arranged on request. Guests also have access to a fully equipped kitchen, and our partner Mila Restaurant is nearby for lunch and dinner."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is it cheaper to book direct?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Booking directly with us on WhatsApp avoids online travel agency commission, so we can offer our best available rate, flexible cancellation up to 48 hours before arrival and personal concierge support during your stay."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Do you have free parking and Wi-Fi?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Both are free for all guests. We have private on-site parking and high-speed Wi-Fi throughout the property."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What languages do you speak?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Our team speaks English, German and Sinhala, so international guests can be looked after comfortably."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How do I get to the property from the main road?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "From the Galle–Matara main road (A2), turn inland at the Udupila Road junction, continue about 300 m past Coco Gate and Dewmini Roti Shop, then follow Withanagoda Road into Madina Watta. The route map is in the Location section above."
+            }
+        }
+    ]
+}
     </script>
 </head>
 <body>
@@ -169,7 +253,7 @@
     <header>
         <nav>
             <div class="logo">
-                <a href="/"><img src="public/images/logo.png" alt="LÁ MANGÁ Hotel Mirissa Sri Lanka"></a>
+                <a href="/"><picture><source type="image/webp" srcset="public/images/logo-800.webp 800w, public/images/logo.webp 1200w" sizes="(max-width: 768px) 100vw, 400px"><img src="public/images/logo.png" alt="LÁ MANGÁ Hotel Mirissa Sri Lanka"></picture></a>
             </div>
             <div class="menu-toggle" id="mobile-menu" aria-label="Toggle navigation menu" aria-expanded="false">
                 <span class="bar"></span>
@@ -181,7 +265,10 @@
                 <li><a href="#destination">Discover</a></li>
                 <li><a href="#rooms">Rooms</a></li>
                 <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#location">Location</a></li>
+                <li><a href="#enquiry">Availability</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li class="lang-switch"><a href="/de/" hreflang="de" lang="de"><i class="fas fa-globe" aria-hidden="true"></i> DE</a></li>
                 <li><a href="https://wa.me/94762096130" class="btn-book">Book Now</a></li>
             </ul>
         </nav>
@@ -196,8 +283,8 @@
                 <span class="hero-location"><i class="fas fa-map-marker-alt"></i> Mirissa, Sri Lanka</span>
                 <p class="hero-tagline">Your Serene Getaway in the Heart of the South</p>
                 <div class="trust-badges-top">
-                    <span class="trust-badge"><i class="fab fa-google"></i> 4.9 ★</span>
-                    <span class="trust-badge"><i class="fas fa-comments"></i> 27 Reviews</span>
+                    <span class="trust-badge"><i class="fab fa-google"></i> <span data-live="rating">4.9</span> ★</span>
+                    <span class="trust-badge"><i class="fas fa-comments"></i> <span data-live="review-count">Google Reviews</span></span>
                     <span class="trust-badge"><i class="fas fa-shield-alt"></i> Book Direct & Save</span>
                 </div>
                 <div class="hero-features">
@@ -239,7 +326,7 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="public/images/gallery/16.jpg" alt="LÁ MANGÁ boutique hotel exterior with lush tropical garden and relaxation area in Mirissa, Sri Lanka" loading="lazy">
+                    <picture><source type="image/webp" srcset="public/images/gallery/16-800.webp 800w, public/images/gallery/16.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"><img src="public/images/gallery/16.jpg" alt="LÁ MANGÁ boutique hotel exterior with lush tropical garden and relaxation area in Mirissa, Sri Lanka" loading="lazy"></picture>
                 </div>
             </div>
         </section>
@@ -290,13 +377,14 @@
                 <!-- Sunset Room -->
                 <div class="room-card">
                     <div class="room-image-container">
-                        <img src="public/images/sunset/1.jpg" alt="Sunset Room with double bed and garden view at LÁ MANGÁ hotel Mirissa" loading="lazy">
+                        <picture><source type="image/webp" srcset="public/images/sunset/1-800.webp 800w, public/images/sunset/1.webp 1200w" sizes="(max-width: 768px) 100vw, 400px"><img src="public/images/sunset/1.jpg" alt="Sunset Room with double bed and garden view at LÁ MANGÁ hotel Mirissa" loading="lazy"></picture>
                         <div class="room-badge">Popular</div>
                     </div>
                     <div class="room-content">
                         <h3>Sunset</h3>
                         <span class="room-type">Triple Room with Garden View</span>
 
+                        <div class="room-price" data-price-for="Sunset" hidden></div>
                         <div class="room-capacity">
                             <span><i class="fas fa-user-friends"></i> 3 Guests</span>
                             <span><i class="fas fa-bed"></i> 1 Single + 1 Double</span>
@@ -313,13 +401,14 @@
                 <!-- Olive Room -->
                 <div class="room-card">
                     <div class="room-image-container">
-                        <img src="public/images/gallery/05.jpg" alt="Olive Room with private entrance and double bed at LÁ MANGÁ boutique hotel Mirissa" loading="lazy">
+                        <picture><source type="image/webp" srcset="public/images/olive/1-800.webp 800w, public/images/olive/1.webp 1200w" sizes="(max-width: 768px) 100vw, 400px"><img src="public/images/olive/1.jpg" alt="Olive deluxe double room at LÁ MANGÁ with a private entrance and woven pendant light" loading="lazy"></picture>
                         <div class="room-badge private">Private Entrance</div>
                     </div>
                     <div class="room-content">
                         <h3>Olive</h3>
                         <span class="room-type">Deluxe Double Room</span>
 
+                        <div class="room-price" data-price-for="Olive" hidden></div>
                         <div class="room-capacity">
                             <span><i class="fas fa-user-friends"></i> 2 Guests</span>
                             <span><i class="fas fa-bed"></i> 1 Double Bed</span>
@@ -336,12 +425,13 @@
                 <!-- Garden Room -->
                 <div class="room-card">
                     <div class="room-image-container">
-                        <img src="public/images/gallery/08.jpg" alt="Garden Room with lush green view and modern amenities at LÁ MANGÁ Mirissa" loading="lazy">
+                        <picture><source type="image/webp" srcset="public/images/garden/1-800.webp 800w, public/images/garden/1.webp 1200w" sizes="(max-width: 768px) 100vw, 400px"><img src="public/images/garden/1.jpg" alt="Garden deluxe double room at LÁ MANGÁ with twin rattan pendant lights and garden view" loading="lazy"></picture>
                     </div>
                     <div class="room-content">
                         <h3>Garden</h3>
                         <span class="room-type">Deluxe Double Room</span>
 
+                        <div class="room-price" data-price-for="Garden" hidden></div>
                         <div class="room-capacity">
                             <span><i class="fas fa-user-friends"></i> 2 Guests</span>
                             <span><i class="fas fa-bed"></i> 1 Double Bed</span>
@@ -358,11 +448,12 @@
                 <!-- Sea Room -->
                 <div class="room-card">
                     <div class="room-image-container">
-                        <img src="public/images/gallery/10.jpg" alt="Sea Room with comfortable double bed and natural surroundings at LÁ MANGÁ Mirissa" loading="lazy">
+                        <picture><source type="image/webp" srcset="public/images/sea/1-800.webp 800w, public/images/sea/1.webp 1200w" sizes="(max-width: 768px) 100vw, 400px"><img src="public/images/sea/1.jpg" alt="Sea deluxe double room at LÁ MANGÁ with a double bed, wardrobe and rattan lighting" loading="lazy"></picture>
                     </div>
                     <div class="room-content">
                         <h3>Sea</h3>
                         <span class="room-type">Deluxe Double Room</span>
+                        <div class="room-price" data-price-for="Sea" hidden></div>
                         <div class="room-capacity">
                             <span><i class="fas fa-user-friends"></i> 2 Guests</span>
                             <span><i class="fas fa-bed"></i> 1 Double Bed</span>
@@ -387,67 +478,67 @@
             </div>
             <div class="gallery-grid">
                 <div class="gallery-item large">
-                    <img src="public/images/gallery/01.jpg" alt="LÁ MANGÁ Gallery" loading="lazy">
+                    <picture><source type="image/webp" srcset="public/images/gallery/01-800.webp 800w, public/images/gallery/01.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"><img src="public/images/gallery/01.jpg" alt="Bright double bedroom at LÁ MANGÁ with woven rattan pendant lights, ceiling fan and air conditioning" loading="lazy"></picture>
                 </div>
                 <div class="gallery-item">
-                    <img src="public/images/gallery/02.jpg" alt="LÁ MANGÁ Gallery" loading="lazy">
+                    <picture><source type="image/webp" srcset="public/images/gallery/02-800.webp 800w, public/images/gallery/02.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"><img src="public/images/gallery/02.jpg" alt="Guest room with double bed, open shelving and full-length mirror at LÁ MANGÁ Mirissa" loading="lazy"></picture>
                 </div>
                 <div class="gallery-item">
-                    <img src="public/images/gallery/03.jpg" alt="LÁ MANGÁ Gallery" loading="lazy">
+                    <picture><source type="image/webp" srcset="public/images/gallery/03-800.webp 800w, public/images/gallery/03.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"><img src="public/images/gallery/03.jpg" alt="Triple room at LÁ MANGÁ with a single bed beside the double bed and rattan pendant lighting" loading="lazy"></picture>
                 </div>
                 <div class="gallery-item tall">
-                    <img src="public/images/gallery/04.jpg" alt="LÁ MANGÁ Gallery" loading="lazy">
+                    <picture><source type="image/webp" srcset="public/images/gallery/04-800.webp 800w, public/images/gallery/04.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"><img src="public/images/gallery/04.jpg" alt="Freshly made double bed with cushions and a carved wooden headboard at LÁ MANGÁ" loading="lazy"></picture>
                 </div>
                 <div class="gallery-item">
-                    <img src="public/images/gallery/05.jpg" alt="LÁ MANGÁ Gallery" loading="lazy">
+                    <picture><source type="image/webp" srcset="public/images/gallery/05-800.webp 800w, public/images/gallery/05.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"><img src="public/images/gallery/05.jpg" alt="Modern en-suite bathroom with walk-in rain shower, vanity and complimentary toiletries" loading="lazy"></picture>
                 </div>
                 <div class="gallery-item">
-                    <img src="public/images/gallery/06.jpg" alt="LÁ MANGÁ Gallery" loading="lazy">
+                    <picture><source type="image/webp" srcset="public/images/gallery/06-800.webp 800w, public/images/gallery/06.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"><img src="public/images/gallery/06.jpg" alt="Spacious air-conditioned guest room with wardrobe and white minimal interior" loading="lazy"></picture>
                 </div>
                 <div class="gallery-item">
-                    <img src="public/images/gallery/07.jpg" alt="LÁ MANGÁ Gallery" loading="lazy">
+                    <picture><source type="image/webp" srcset="public/images/gallery/07-800.webp 800w, public/images/gallery/07.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"><img src="public/images/gallery/07.jpg" alt="Sunset triple room sleeping three, with double and single beds and woven pendant lamps" loading="lazy"></picture>
                 </div>
                 <div class="gallery-item large">
-                    <img src="public/images/gallery/08.jpg" alt="LÁ MANGÁ Gallery" loading="lazy">
+                    <picture><source type="image/webp" srcset="public/images/gallery/08-800.webp 800w, public/images/gallery/08.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"><img src="public/images/gallery/08.jpg" alt="Air-conditioned double room with rattan lighting and a woven floor rug" loading="lazy"></picture>
                 </div>
                 <div class="gallery-item">
-                    <img src="public/images/gallery/09.jpg" alt="LÁ MANGÁ Gallery" loading="lazy">
+                    <picture><source type="image/webp" srcset="public/images/gallery/09-800.webp 800w, public/images/gallery/09.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"><img src="public/images/gallery/09.jpg" alt="Planted garden courtyard with shaded seating and a paved walkway between the rooms" loading="lazy"></picture>
                 </div>
                 <div class="gallery-item">
-                    <img src="public/images/gallery/10.jpg" alt="LÁ MANGÁ Gallery" loading="lazy">
+                    <picture><source type="image/webp" srcset="public/images/gallery/10-800.webp 800w, public/images/gallery/10.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"><img src="public/images/gallery/10.jpg" alt="Covered outdoor terrace with a built-in bench, ideal for morning coffee in the shade" loading="lazy"></picture>
                 </div>
                 <div class="gallery-item">
-                    <img src="public/images/gallery/11.jpg" alt="LÁ MANGÁ Gallery" loading="lazy">
+                    <picture><source type="image/webp" srcset="public/images/gallery/11-800.webp 800w, public/images/gallery/11.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"><img src="public/images/gallery/11.jpg" alt="Whitewashed exterior of LÁ MANGÁ set among tropical trees in Udupila, Mirissa" loading="lazy"></picture>
                 </div>
                 <div class="gallery-item">
-                    <img src="public/images/gallery/12.jpg" alt="LÁ MANGÁ Gallery" loading="lazy">
+                    <picture><source type="image/webp" srcset="public/images/gallery/12-800.webp 800w, public/images/gallery/12.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"><img src="public/images/gallery/12.jpg" alt="LÁ MANGÁ guest house at blue hour with warmly lit windows and a paved driveway" loading="lazy"></picture>
                 </div>
                 <div class="gallery-item tall">
-                    <img src="public/images/gallery/13.jpg" alt="LÁ MANGÁ Gallery" loading="lazy">
+                    <picture><source type="image/webp" srcset="public/images/gallery/13-800.webp 800w, public/images/gallery/13.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"><img src="public/images/gallery/13.jpg" alt="Front of the property lit up at night, showing the private entrances to each room" loading="lazy"></picture>
                 </div>
                 <div class="gallery-item">
-                    <img src="public/images/gallery/14.jpg" alt="LÁ MANGÁ Gallery" loading="lazy">
+                    <picture><source type="image/webp" srcset="public/images/gallery/14-800.webp 800w, public/images/gallery/14.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"><img src="public/images/gallery/14.jpg" alt="Evening view of the LÁ MANGÁ veranda with warm lighting and tropical planting" loading="lazy"></picture>
                 </div>
                 <div class="gallery-item">
-                    <img src="public/images/gallery/15.jpg" alt="LÁ MANGÁ Gallery" loading="lazy">
+                    <picture><source type="image/webp" srcset="public/images/gallery/15-800.webp 800w, public/images/gallery/15.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"><img src="public/images/gallery/15.jpg" alt="Illuminated facade of LÁ MANGÁ against a deep blue evening sky in Mirissa" loading="lazy"></picture>
                 </div>
                 <div class="gallery-item large">
-                    <img src="public/images/gallery/16.jpg" alt="LÁ MANGÁ Gallery" loading="lazy">
+                    <picture><source type="image/webp" srcset="public/images/gallery/16-800.webp 800w, public/images/gallery/16.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"><img src="public/images/gallery/16.jpg" alt="Hand-carved wooden key tags for the Sunset, Garden, Olive and Sea rooms at LÁ MANGÁ" loading="lazy"></picture>
                 </div>
                 <div class="gallery-item">
-                    <img src="public/images/gallery/17.jpg" alt="LÁ MANGÁ Gallery" loading="lazy">
+                    <picture><source type="image/webp" srcset="public/images/gallery/17-800.webp 800w, public/images/gallery/17.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"><img src="public/images/gallery/17.jpg" alt="Long lit veranda running along the front of LÁ MANGÁ with potted plants and brick paving" loading="lazy"></picture>
                 </div>
                 <div class="gallery-item">
-                    <img src="public/images/gallery/18.jpg" alt="LÁ MANGÁ Gallery" loading="lazy">
+                    <picture><source type="image/webp" srcset="public/images/gallery/18-800.webp 800w, public/images/gallery/18.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"><img src="public/images/gallery/18.jpg" alt="Outdoor dining table under a rattan pendant light in the LÁ MANGÁ garden at night" loading="lazy"></picture>
                 </div>
                 <div class="gallery-item">
-                    <img src="public/images/gallery/19.jpg" alt="LÁ MANGÁ Gallery" loading="lazy">
+                    <picture><source type="image/webp" srcset="public/images/gallery/19-800.webp 800w, public/images/gallery/19.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"><img src="public/images/gallery/19.jpg" alt="LÁ MANGÁ mango logo sign mounted on the whitewashed exterior wall" loading="lazy"></picture>
                 </div>
                 <div class="gallery-item">
-                    <img src="public/images/gallery/20.jpg" alt="LÁ MANGÁ Gallery" loading="lazy">
+                    <picture><source type="image/webp" srcset="public/images/gallery/20-800.webp 800w, public/images/gallery/20.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"><img src="public/images/gallery/20.jpg" alt="Covered veranda seating area glowing under warm light beside an arched window" loading="lazy"></picture>
                 </div>
                 <div class="gallery-item">
-                    <img src="public/images/gallery/21.jpg" alt="LÁ MANGÁ Gallery" loading="lazy">
+                    <picture><source type="image/webp" srcset="public/images/gallery/21-800.webp 800w, public/images/gallery/21.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"><img src="public/images/gallery/21.jpg" alt="Guest room entrance with a potted plant, polished floor and hanging lantern" loading="lazy"></picture>
                 </div>
             </div>
         </section>
@@ -482,19 +573,41 @@
                         </div>
                         <span class="google-score-count" id="google-review-count">Based on Google Reviews</span>
                     </div>
+                    <div class="rating-bars" id="rating-bars"></div>
                 </div>
 
-                <!-- Reviews Grid - dynamically populated -->
-                <div class="reviews-grid" id="google-reviews-grid">
-                    <div class="reviews-loading" id="reviews-loading">
-                        <div class="loading-spinner"></div>
-                        <p>Loading Google Reviews...</p>
+                <!-- Review carousel - dynamically populated -->
+                <div class="reviews-carousel" id="reviews-carousel" role="region" aria-roledescription="carousel" aria-label="Guest reviews from Google" tabindex="0">
+                    <button type="button" class="rc-arrow rc-prev" id="rc-prev" aria-label="Previous review">
+                        <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                    </button>
+                    <div class="rc-viewport" id="rc-viewport">
+                        <div class="rc-track" id="rc-track" aria-live="polite">
+                            <div class="reviews-loading" id="reviews-loading">
+                                <div class="loading-spinner"></div>
+                                <p>Loading Google reviews...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="rc-arrow rc-next" id="rc-next" aria-label="Next review">
+                        <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                    </button>
+                    <div class="rc-controls">
+                        <button type="button" class="rc-play" id="rc-play" aria-label="Pause review slideshow">
+                            <i class="fas fa-pause" aria-hidden="true"></i>
+                        </button>
+                        <div class="rc-progress" aria-hidden="true"><span id="rc-progress-bar"></span></div>
+                        <span class="rc-counter" id="rc-counter"></span>
+                        <div class="rc-dots" id="rc-dots"></div>
                     </div>
                 </div>
 
                 <div class="review-cta">
                     <a href="https://search.google.com/local/writereview?placeid=ChIJSSh5EMs_4ToRG2erPYwrHW8" target="_blank" rel="noopener noreferrer" class="btn-review">
                         <i class="fab fa-google"></i> Write a Review on Google
+                    </a>
+                    <a href="https://www.google.com/maps/place/?q=place_id:ChIJSSh5EMs_4ToRG2erPYwrHW8" id="read-all-reviews" target="_blank" rel="noopener noreferrer" class="btn-review secondary">
+                        <i class="fas fa-comments"></i> Read All Reviews on Google
                     </a>
                 </div>
             </div>
@@ -579,7 +692,7 @@
                     </a>
                 </div>
                 <div class="restaurant-image">
-                    <img src="Images/Milamirissa.jpg" alt="Mila Restaurant Mirissa" loading="lazy">
+                    <picture><source type="image/webp" srcset="public/images/Milamirissa-800.webp 800w, public/images/Milamirissa.webp 1200w" sizes="(max-width: 768px) 100vw, 400px"><img src="public/images/Milamirissa.jpg" alt="Mila Restaurant Mirissa" loading="lazy"></picture>
                     <div class="restaurant-overlay">
                         <span class="restaurant-tag"><i class="fas fa-utensils"></i> Fine Dining in Mirissa</span>
                     </div>
@@ -613,8 +726,8 @@
                             <h4>Nearby Dining</h4>
                             <ul>
                                 <li class="featured-restaurant"><i class="fas fa-star"></i> <a href="https://milamirissa.com/" target="_blank">Mila Restaurant</a> - Our Partner Restaurant!</li>
-                                <li><i class="fas fa-map-pin"></i> Dewmini Roti Shop: 10 m</li>
-                                <li><i class="fas fa-map-pin"></i> Coco Gate: 50 m</li>
+                                <li><i class="fas fa-map-pin"></i> Dewmini Roti Shop: 150 m</li>
+                                <li><i class="fas fa-map-pin"></i> Coco Gate: 120 m</li>
                                 <li><i class="fas fa-map-pin"></i> Ambrosia Roti Shop: 150 m</li>
                             </ul>
                         </div>
@@ -632,10 +745,248 @@
                     </div>
                 </div>
                 <div class="location-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.8088!2d80.4537!3d5.9478!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNcKwNTYnNTIuMSJOIDgwwrAyNycxMy4zIkU!5e0!3m2!1sen!2slk!4v1620000000000!5m2!1sen!2slk" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    <a href="https://maps.app.goo.gl/EPmgXM7x7Ct7oU9PA?g_st=ic" target="_blank" class="btn-directions">
-                        <i class="fas fa-directions"></i> Get Directions
-                    </a>
+                    <div class="map-tabs" role="tablist" aria-label="Map views">
+                        <button type="button" class="map-tab active" role="tab" id="tab-hotel" aria-controls="panel-hotel" aria-selected="true" data-panel="panel-hotel">
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i> Hotel Location
+                        </button>
+                        <button type="button" class="map-tab" role="tab" id="tab-route" aria-controls="panel-route" aria-selected="false" data-panel="panel-route">
+                            <i class="fas fa-route" aria-hidden="true"></i> Route from Galle Road
+                        </button>
+                    </div>
+
+                    <!-- Panel: hotel pin -->
+                    <div class="map-panel" id="panel-hotel" role="tabpanel" aria-labelledby="tab-hotel">
+                        <div class="map-frame-wrap">
+                            <span class="map-copy-toast" id="map-copy-toast" role="status">Coordinates copied</span>
+                            <!-- Official Google Maps embed for the LÁ MANGÁ business listing,
+                                 so the marker is the verified place, not a loose coordinate. -->
+                            <iframe
+                                title="Map showing LÁ MANGÁ, Withanagoda Road, Udupila, Mirissa"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1984.1680411226444!2d80.4593243621999!3d5.948341429900937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae13fcb10792849%3A0x6f1d2b8c3dab671b!2zTMOBIE1BTkfDgQ!5e0!3m2!1sen!2slk!4v1788984013332!5m2!1sen!2slk"
+                                allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                            <div class="map-actions">
+                                <a class="map-action" href="https://www.google.com/maps/dir/?api=1&amp;destination=L%C3%81%20MANG%C3%81%2C%20Mirissa&amp;destination_place_id=ChIJSSh5EMs_4ToRG2erPYwrHW8&amp;travelmode=driving" target="_blank" rel="noopener noreferrer">
+                                    <i class="fas fa-directions" aria-hidden="true"></i> Get Directions
+                                </a>
+                                <a class="map-action gold" href="https://waze.com/ul?ll=5.948424,80.461815&amp;navigate=yes" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-waze" aria-hidden="true"></i> Open in Waze
+                                </a>
+                                <button type="button" class="map-action" id="copy-coords" data-coords="5.948424, 80.461815">
+                                    <i class="fas fa-copy" aria-hidden="true"></i> Copy GPS
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Panel: driving route from the Galle Road / Udupila Road junction -->
+                    <div class="map-panel" id="panel-route" role="tabpanel" aria-labelledby="tab-route" hidden>
+                        <div class="map-frame-wrap">
+                            <div id="route-map" class="route-map" role="img"
+                                 aria-label="Map of the 520 metre route from the Galle Road and Udupila Road junction to LÁ MANGÁ">
+                                <div class="route-map-loading"><div class="loading-spinner"></div></div>
+                            </div>
+                            <div class="route-legend">
+                                <span><i class="fas fa-flag" aria-hidden="true"></i> Galle Rd junction</span>
+                                <span><i class="fas fa-route" aria-hidden="true"></i> 520 m &middot; 1 min drive</span>
+                                <span><i class="fas fa-map-marker-alt" aria-hidden="true"></i> LÁ MANGÁ</span>
+                            </div>
+                            <div class="map-actions">
+                                <a class="map-action" href="https://www.google.com/maps/dir/?api=1&amp;origin=5.9456916,80.4596395&amp;destination=5.948424,80.461815&amp;travelmode=driving" target="_blank" rel="noopener noreferrer">
+                                    <i class="fas fa-car" aria-hidden="true"></i> Navigate This Route
+                                </a>
+                                <a class="map-action" href="https://www.google.com/maps/dir/?api=1&amp;origin=5.9456916,80.4596395&amp;destination=5.948424,80.461815&amp;travelmode=walking" target="_blank" rel="noopener noreferrer">
+                                    <i class="fas fa-walking" aria-hidden="true"></i> Walking Route
+                                </a>
+                                <a class="map-action gold" href="https://wa.me/94762096130?text=Hi!%20I%27m%20on%20my%20way%20to%20L%C3%81%20MANG%C3%81%20and%20need%20help%20finding%20the%20property." target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-whatsapp" aria-hidden="true"></i> Ask Us
+                                </a>
+                            </div>
+                        </div>
+                        <div class="route-steps">
+                            <h4>How to find us from the main road</h4>
+                            <p class="route-intro">520 m in total — about a 1-minute drive or a 7-minute walk from the junction.</p>
+                            <ol class="route-list">
+                                <li>On the <strong>Galle&ndash;Matara main road (A2)</strong>, find the <strong>Udupila Road junction</strong> in Mirissa, just east of the town centre.</li>
+                                <li>Turn <strong>inland (north)</strong> into <strong>Udupila Road</strong>, away from the beach side.</li>
+                                <li>Continue about <strong>400 m</strong> up Udupila Road, passing <strong>Coco Gate</strong> and <strong>Dewmini Roti Shop</strong>.</li>
+                                <li>Turn <strong>right</strong> into <strong>Withanagoda Road</strong> (shown as Jayalathgama Road on some maps) and carry on about <strong>100 m</strong> into <strong>Madina Watta</strong>.</li>
+                                <li><strong>LÁ MANGÁ</strong> is on your right — look for the property sign. Free parking is on site.</li>
+                            </ol>
+                            <p class="route-note">
+                                <i class="fas fa-lightbulb" aria-hidden="true"></i>
+                                <span>Arriving by tuk-tuk or taxi? Show the driver <strong>"LÁ MANGÁ, Udupila, Mirissa"</strong> or send us a WhatsApp message and we will guide your driver in.</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Availability enquiry: composes a complete WhatsApp/email message so
+             an out-of-hours enquiry still arrives with dates, guests and room. -->
+        <section id="enquiry">
+            <div class="section-header">
+                <span class="section-subtitle">Check Availability</span>
+                <h2>Request Your Dates</h2>
+                <div class="section-divider"></div>
+                <p class="section-description">Send us your dates and we will confirm availability and our best direct rate — usually within a few hours.</p>
+            </div>
+            <div class="enquiry-container">
+                <form class="enquiry-form" id="enquiry-form" novalidate>
+                    <div class="field-row">
+                        <div class="field">
+                            <label for="eq-checkin">Check-in</label>
+                            <input type="date" id="eq-checkin" name="checkin" required>
+                        </div>
+                        <div class="field">
+                            <label for="eq-checkout">Check-out</label>
+                            <input type="date" id="eq-checkout" name="checkout" required>
+                        </div>
+                    </div>
+                    <div class="field-row">
+                        <div class="field">
+                            <label for="eq-guests">Guests</label>
+                            <select id="eq-guests" name="guests">
+                                <option value="1">1 guest</option>
+                                <option value="2" selected>2 guests</option>
+                                <option value="3">3 guests</option>
+                                <option value="4">4 guests</option>
+                                <option value="5">5 guests</option>
+                                <option value="6+">6 or more</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label for="eq-room">Room</label>
+                            <select id="eq-room" name="room">
+                                <option value="">No preference</option>
+                                <option value="Sunset">Sunset — Triple, Garden View</option>
+                                <option value="Olive">Olive — Deluxe Double, Private Entrance</option>
+                                <option value="Garden">Garden — Deluxe Double</option>
+                                <option value="Sea">Sea — Deluxe Double</option>
+                                <option value="Whole property">Whole property</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="eq-name">Your name</label>
+                        <input type="text" id="eq-name" name="name" autocomplete="name" placeholder="e.g. Anna Weber" required>
+                    </div>
+                    <div class="field">
+                        <label for="eq-notes">Anything we should know? <span class="optional">(optional)</span></label>
+                        <textarea id="eq-notes" name="notes" rows="3" placeholder="Airport transfer, whale watching, early check-in…"></textarea>
+                    </div>
+
+                    <p class="enquiry-summary" id="enquiry-summary" role="status"></p>
+                    <p class="enquiry-error" id="enquiry-error" role="alert" hidden></p>
+
+                    <div class="enquiry-actions">
+                        <button type="submit" class="btn-enquiry whatsapp">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Send on WhatsApp
+                        </button>
+                        <button type="button" class="btn-enquiry email" id="eq-email">
+                            <i class="fas fa-envelope" aria-hidden="true"></i> Send by Email
+                        </button>
+                    </div>
+                    <p class="enquiry-note"><i class="fas fa-lock" aria-hidden="true"></i> No account, no deposit. Your details go straight to us — nothing is stored on this website.</p>
+                </form>
+
+                <aside class="enquiry-aside">
+                    <h3>Booking direct means</h3>
+                    <ul>
+                        <li><i class="fas fa-tag" aria-hidden="true"></i> <span><strong>Our best rate</strong> — no agency commission added on top</span></li>
+                        <li><i class="fas fa-calendar-check" aria-hidden="true"></i> <span><strong>Free changes</strong> up to 48 hours before arrival</span></li>
+                        <li><i class="fas fa-concierge-bell" aria-hidden="true"></i> <span><strong>A real person</strong> on WhatsApp before and during your stay</span></li>
+                        <li><i class="fas fa-car-side" aria-hidden="true"></i> <span><strong>Transfers and tours</strong> arranged at local prices</span></li>
+                    </ul>
+                    <div class="enquiry-contact">
+                        <span>Prefer to talk?</span>
+                        <a href="https://wa.me/94762096130"><i class="fab fa-whatsapp" aria-hidden="true"></i> +94 76 209 6130</a>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section id="faq">
+            <div class="section-header">
+                <span class="section-subtitle">Good to Know</span>
+                <h2>Frequently Asked Questions</h2>
+                <div class="section-divider"></div>
+                <p class="section-description">Everything guests usually ask before booking</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a-0" id="faq-q-0">
+                        <span>How far is LÁ MANGÁ from Mirissa Beach?</span>
+                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                    <div class="faq-answer" id="faq-a-0" role="region" aria-labelledby="faq-q-0">
+                        <p>LÁ MANGÁ is about 500 m from Mirissa Beach — roughly a 7-minute walk. Coconut Tree Hill is around 5 minutes away, and the whale-watching harbour is a short tuk-tuk ride.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a-1" id="faq-q-1">
+                        <span>What are the check-in and check-out times?</span>
+                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                    <div class="faq-answer" id="faq-a-1" role="region" aria-labelledby="faq-q-1">
+                        <p>Check-in is from 2:00 PM and check-out is until 11:00 AM. Early check-in or late check-out can often be arranged — just message us on WhatsApp before you arrive.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a-2" id="faq-q-2">
+                        <span>Do you arrange whale watching, surfing or airport transfers?</span>
+                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                    <div class="faq-answer" id="faq-a-2" role="region" aria-labelledby="faq-q-2">
+                        <p>Yes. We arrange whale-watching boat tours, surf lessons, safari day trips and private airport transfers from Colombo (CMB) or Mattala (HRI). Message us on WhatsApp and we will book it for you at local rates.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a-3" id="faq-q-3">
+                        <span>Is breakfast available?</span>
+                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                    <div class="faq-answer" id="faq-a-3" role="region" aria-labelledby="faq-q-3">
+                        <p>Yes, freshly prepared Sri Lankan and Western breakfast can be arranged on request. Guests also have access to a fully equipped kitchen, and our partner Mila Restaurant is nearby for lunch and dinner.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a-4" id="faq-q-4">
+                        <span>Is it cheaper to book direct?</span>
+                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                    <div class="faq-answer" id="faq-a-4" role="region" aria-labelledby="faq-q-4">
+                        <p>Yes. Booking directly with us on WhatsApp avoids online travel agency commission, so we can offer our best available rate, flexible cancellation up to 48 hours before arrival and personal concierge support during your stay.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a-5" id="faq-q-5">
+                        <span>Do you have free parking and Wi-Fi?</span>
+                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                    <div class="faq-answer" id="faq-a-5" role="region" aria-labelledby="faq-q-5">
+                        <p>Both are free for all guests. We have private on-site parking and high-speed Wi-Fi throughout the property.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a-6" id="faq-q-6">
+                        <span>What languages do you speak?</span>
+                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                    <div class="faq-answer" id="faq-a-6" role="region" aria-labelledby="faq-q-6">
+                        <p>Our team speaks English, German and Sinhala, so international guests can be looked after comfortably.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a-7" id="faq-q-7">
+                        <span>How do I get to the property from the main road?</span>
+                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                    <div class="faq-answer" id="faq-a-7" role="region" aria-labelledby="faq-q-7">
+                        <p>From the Galle–Matara main road (A2), turn inland at the Udupila Road junction, continue about 300 m past Coco Gate and Dewmini Roti Shop, then follow Withanagoda Road into Madina Watta. The route map is in the Location section above.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -709,7 +1060,7 @@
         <div class="sticky-bar-content">
             <div class="sticky-bar-info">
                 <span class="sticky-bar-name">LÁ MANGÁ</span>
-                <span class="sticky-bar-rating"><i class="fas fa-star"></i> 4.9 · Mirissa</span>
+                <span class="sticky-bar-rating"><i class="fas fa-star"></i> <span data-live="rating">4.9</span> · Mirissa</span>
             </div>
             <div class="sticky-bar-price">
                 <span><i class="fas fa-check-circle" style="color:#27ae60"></i> Best Rate Guaranteed</span>
@@ -723,7 +1074,7 @@
     <footer>
         <div class="footer-content">
             <div class="footer-logo">
-                <img src="public/images/logo.png" alt="LÁ MANGÁ">
+                <picture><source type="image/webp" srcset="public/images/logo-800.webp 800w, public/images/logo.webp 1200w" sizes="(max-width: 768px) 100vw, 400px"><img src="public/images/logo.png" alt="LÁ MANGÁ"></picture>
                 <p>Your Serene Getaway in Mirissa</p>
             </div>
             <div class="footer-links">
@@ -762,6 +1113,16 @@
                     </div>
                     <i class="fas fa-external-link-alt"></i>
                 </a>
+                <a href="#enquiry" id="enquiry-modal-link" class="booking-option enquiry-option" data-enquire-room="">
+                    <div class="option-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="option-text">
+                        <strong>Request Specific Dates</strong>
+                        <span>Send your dates and get a confirmed quote back</span>
+                    </div>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
                 <a href="#" id="whatsapp-cart-link" target="_blank" class="booking-option whatsapp-cart">
                     <div class="option-icon">
                         <i class="fab fa-whatsapp"></i>
@@ -777,7 +1138,10 @@
         </div>
     </div>
 
-    <script src="public/js/script.js"></script>
-    <script src="public/js/google-reviews.js"></script>
+    <script src="public/js/script.js" defer></script>
+    <script src="public/js/google-reviews.js" defer></script>
+    <script src="public/js/route-map.js" defer></script>
+    <script src="public/js/rates.js" defer></script>
+    <script src="public/js/enquiry.js" defer></script>
 </body>
 </html>

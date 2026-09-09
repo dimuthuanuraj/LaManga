@@ -118,6 +118,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 whatsappCartLink.href = `https://wa.me/94762096130?text=${message}`;
             }
             
+            // Carry the chosen room through to the availability form.
+            const enquiryLink = document.getElementById('enquiry-modal-link');
+            if (enquiryLink) enquiryLink.setAttribute('data-enquire-room', roomName);
+
             // Show modal
             bookingModal.classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -151,5 +155,87 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(closeModal, 300);
         });
     });
-});
 
+    // ===== Map Tabs (hotel pin / route from main road) =====
+    const mapTabs = document.querySelectorAll('.map-tab');
+
+    mapTabs.forEach(tab => {
+        tab.addEventListener('click', function () {
+            const targetId = this.dataset.panel;
+
+            mapTabs.forEach(t => {
+                const isActive = t === this;
+                t.classList.toggle('active', isActive);
+                t.setAttribute('aria-selected', isActive);
+            });
+
+            document.querySelectorAll('.map-panel').forEach(panel => {
+                panel.hidden = panel.id !== targetId;
+            });
+
+            // Load the route iframe only the first time the tab is opened.
+            const panel = document.getElementById(targetId);
+            const frame = panel ? panel.querySelector('iframe[data-src]') : null;
+            if (frame) {
+                frame.src = frame.dataset.src;
+                frame.removeAttribute('data-src');
+            }
+        });
+    });
+
+    // ===== Copy GPS coordinates =====
+    const copyCoordsBtn = document.getElementById('copy-coords');
+    const copyToast = document.getElementById('map-copy-toast');
+
+    if (copyCoordsBtn) {
+        copyCoordsBtn.addEventListener('click', function () {
+            const coords = this.dataset.coords;
+
+            const showToast = () => {
+                if (!copyToast) return;
+                copyToast.classList.add('show');
+                setTimeout(() => copyToast.classList.remove('show'), 2000);
+            };
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(coords).then(showToast).catch(fallbackCopy);
+            } else {
+                fallbackCopy();
+            }
+
+            function fallbackCopy() {
+                const input = document.createElement('textarea');
+                input.value = coords;
+                input.setAttribute('readonly', '');
+                input.style.position = 'absolute';
+                input.style.left = '-9999px';
+                document.body.appendChild(input);
+                input.select();
+                try { document.execCommand('copy'); showToast(); } catch (e) { /* no-op */ }
+                document.body.removeChild(input);
+            }
+        });
+    }
+
+    // ===== FAQ Accordion =====
+    document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', function () {
+            const item = this.closest('.faq-item');
+            const answer = item.querySelector('.faq-answer');
+            const isOpen = item.classList.contains('open');
+
+            // Close any other open item so only one answer shows at a time.
+            document.querySelectorAll('.faq-item.open').forEach(other => {
+                if (other !== item) {
+                    other.classList.remove('open');
+                    other.querySelector('.faq-answer').style.maxHeight = null;
+                    other.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            item.classList.toggle('open', !isOpen);
+            this.setAttribute('aria-expanded', String(!isOpen));
+            answer.style.maxHeight = isOpen ? null : answer.scrollHeight + 'px';
+        });
+    });
+});

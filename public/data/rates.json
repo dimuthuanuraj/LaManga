@@ -1,0 +1,14 @@
+{
+  "_README": "Fill in a nightly rate for each room and the price block appears on that room card automatically. Leave a room null and its price stays hidden, so a half-filled file never shows a wrong or blank price. Also update priceRange in index.html when you set these.",
+  "currency": "USD",
+  "symbol": "$",
+  "per": "night",
+  "note": "Direct rate",
+  "showDirectBadge": true,
+  "rooms": {
+    "Sunset": null,
+    "Olive": null,
+    "Garden": null,
+    "Sea": null
+  }
+}
