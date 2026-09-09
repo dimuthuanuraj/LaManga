@@ -97,6 +97,10 @@ function relativeTime(iso) {
 }
 
 function buildFile(reviews, rating, total) {
+    // Keep whatever display limit is already configured in the file.
+    const existing = loadExisting();
+    const displayCount = (existing && existing.displayCount !== undefined) ? existing.displayCount : 10;
+
     const distribution = { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 };
     reviews.forEach((r) => {
         const n = Math.round(Number(r.rating) || 5);
@@ -108,6 +112,7 @@ function buildFile(reviews, rating, total) {
         placeId: PLACE_ID,
         rating: Math.round((rating || 5) * 10) / 10,
         totalReviews: total || reviews.length,
+        displayCount: displayCount,
         reviewsUrl: `https://www.google.com/maps/place/?q=place_id:${PLACE_ID}`,
         writeReviewUrl: `https://search.google.com/local/writereview?placeid=${PLACE_ID}`,
         distribution,

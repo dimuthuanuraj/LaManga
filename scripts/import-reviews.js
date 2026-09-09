@@ -109,6 +109,7 @@ const data = {
     placeId: PLACE_ID,
     rating: Number(arg('rating')) || Math.round(average * 10) / 10,
     totalReviews: Number(arg('total')) || reviews.length,
+    displayCount: Number(arg('show')) || 10,
     reviewsUrl: `https://www.google.com/maps/place/?q=place_id:${PLACE_ID}`,
     writeReviewUrl: `https://search.google.com/local/writereview?placeid=${PLACE_ID}`,
     distribution,

@@ -4,9 +4,25 @@ The Guest Reviews section is a sliding carousel driven by one file:
 `public/data/google-reviews.json`. Nothing on the page calls Google at runtime,
 so reviews load instantly and cost nothing per visitor.
 
-> ⚠️ **The file currently holds 5 placeholder reviews** (`"source": "placeholder"`).
-> They are sample copy, not real Google reviews. Finish step 1 below to replace
-> them with the real ones.
+Every review shown comes from Google — the file is written only by the sync
+scripts, never by hand.
+
+> ⚠️ **The file is currently empty**, so the section shows the rating summary and
+> a link to Google instead of review cards. The placeholder reviews that used to
+> be here were sample copy, not real reviews, and have been removed. Run the
+> workflow below to fill it with the real ones.
+
+## Quickest path: 5 real reviews right now
+
+You already have a `GOOGLE_API_KEY` secret in this repo, so this works today:
+
+**GitHub → Actions → "Fetch Google Reviews" → Run workflow**
+
+That pulls the 5 most recent real reviews from the Google Places API and commits
+them. The site picks them up on the next page load.
+
+For more than 5, do step 1 below first — the Places API is hard-capped at five
+reviews per request and there is no way around it.
 
 ---
 
@@ -85,6 +101,11 @@ not after.
 | 720–1099 px | 2 |
 | under 720 px | 1 |
 
+**The carousel shows the newest 10 reviews**, sorted by date, while the headline
+still reports the true total from Google ("Based on 45 Google reviews"). Change
+the number with `"displayCount"` in `google-reviews.json` — set it to `0` to show
+every review. The daily sync preserves whatever you set.
+
 - Advances one review at a time, every 5.5 seconds
 - Pauses on hover, on keyboard focus, and when the browser tab is hidden
 - Swipe left/right on touch, ← / → keys when focused, pause/play button
@@ -102,7 +123,7 @@ not after.
 | Big score (4.9) | `rating` |
 | "Based on 45 Google reviews" | `totalReviews` |
 | 5★/4★/3★ bars | `distribution` |
-| Cards | `reviews[]` |
+| Cards | newest 10 of `reviews[]` (see `displayCount`) |
 | "2 months ago" | recomputed in the browser from `publish_time` |
 
 **One thing to keep in sync by hand:** the `aggregateRating` block in

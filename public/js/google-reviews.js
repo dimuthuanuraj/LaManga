@@ -19,6 +19,10 @@
     const REVIEWS_JSON_URL = '/public/data/google-reviews.json';
     const AUTOPLAY_MS = 5500;
     const MAX_CHARS = 260;
+    // How many reviews the carousel shows. The headline count still reports the
+    // real total from Google, so "latest 10 of 45" is what a visitor sees.
+    // Override per-site with "displayCount" in google-reviews.json (0 = all).
+    const DEFAULT_DISPLAY_COUNT = 10;
 
     // The German page is generated from the same markup and loads the same
     // scripts, so anything rendered by JS has to be localised here too.
@@ -35,6 +39,7 @@
         pause: 'Bewertungs-Slideshow pausieren',
         play: 'Bewertungs-Slideshow abspielen',
         goTo: function (i) { return 'Zu Bewertung ' + i + ' springen'; },
+        empty: 'Unsere Gästebewertungen finden Sie in voller Länge auf Google — nutzen Sie den Button unten.',
         ago: { day: 'vor einem Tag', days: function (n) { return 'vor ' + n + ' Tagen'; },
                week: 'vor einer Woche', weeks: function (n) { return 'vor ' + n + ' Wochen'; },
                month: 'vor einem Monat', months: function (n) { return 'vor ' + n + ' Monaten'; },
@@ -51,6 +56,7 @@
         pause: 'Pause review slideshow',
         play: 'Play review slideshow',
         goTo: function (i) { return 'Go to review ' + i; },
+        empty: 'Our guest reviews are on Google in full — use the button below to read them.',
         ago: { day: 'a day ago', days: function (n) { return n + ' days ago'; },
                week: 'a week ago', weeks: function (n) { return n + ' weeks ago'; },
                month: 'a month ago', months: function (n) { return n + ' months ago'; },
@@ -103,17 +109,30 @@
 
     function showEmptyState() {
         if (loadingEl) loadingEl.remove();
-        if (carousel) carousel.style.display = 'none';
+        if (!carousel) return;
+        carousel.innerHTML = '<p class="reviews-empty">' + S.empty + '</p>';
     }
 
     // ===== Render =====
     function render(data) {
-        reviews = (data.reviews || []).filter(function (r) {
+        const all = (data.reviews || []).filter(function (r) {
             return r && r.text && r.text.trim().length > 0;
         });
 
-        const rating = Number(data.rating) || averageOf(reviews) || 5;
-        const total = Number(data.totalReviews) || reviews.length;
+        // Newest first. Entries with no timestamp (a manual import) keep their
+        // file order behind the dated ones rather than jumping to the front.
+        const dated = all.filter(function (r) { return Date.parse(r.publish_time || ''); });
+        const undated = all.filter(function (r) { return !Date.parse(r.publish_time || ''); });
+        dated.sort(function (a, b) {
+            return Date.parse(b.publish_time) - Date.parse(a.publish_time);
+        });
+
+        const limit = data.displayCount === undefined ? DEFAULT_DISPLAY_COUNT : Number(data.displayCount);
+        reviews = dated.concat(undated);
+        if (limit > 0) reviews = reviews.slice(0, limit);
+
+        const rating = Number(data.rating) || averageOf(all) || 5;
+        const total = Number(data.totalReviews) || all.length;
 
         if (avgRatingEl) avgRatingEl.textContent = rating.toFixed(1);
         if (starsEl) starsEl.innerHTML = starsHtml(rating);
@@ -126,7 +145,7 @@
         syncText('[data-live="rating"]', rating.toFixed(1));
         syncText('[data-live="review-count"]', S.reviewsBadge(total));
 
-        renderDistribution(data.distribution, reviews, total);
+        renderDistribution(data.distribution, all, total);
 
         if (loadingEl) loadingEl.remove();
 

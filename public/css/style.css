@@ -3462,3 +3462,10 @@ picture {
 }
 
 .lang-switch a i { font-size: 0.75rem; }
+
+.reviews-empty {
+    text-align: center;
+    padding: 40px 20px 10px;
+    font-size: 0.95rem;
+    color: var(--text-light);
+}
